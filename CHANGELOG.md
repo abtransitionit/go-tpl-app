@@ -7,22 +7,35 @@ This document tracks and documents notable changes made to the project over time
 
 
 The project adheres to [Semantic Versioning](https://semver.org).
+
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased]
+---
+# [1.0.0] - 2026-02-20
 
 ### Added
+
+* Initial Go repository template structure
+* Standard Go module initialization support
+* GitHub Actions CI workflow:
+
+  * go mod tidy validation
+  * go vet static analysis
+  * go test automated testing
+
+### Purpose
+
+This release establishes the baseline template for all Go libraries in the organization.
+
+----
+
+# [Unreleased]
+## Added
 - Placeholder for upcoming features
 
-### Changed
+## Changed
 - Placeholder for upcoming changes
 
-### Fixed
+## Fixed
 - Placeholder for upcoming bug fixes
 
----
-
-## [1.0.0] - YYYY-MM-DD
-
-### Added
-- Initial template release with README, LICENSE, and Code of Conduct
