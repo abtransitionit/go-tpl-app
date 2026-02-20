@@ -64,4 +64,15 @@ git push -u origin main
 - update `tpl-repo-go` to `mygoprj`
 - review each sections and update/add content when needed
 
+# Continuous Integration
+
+This repository uses GitHub Actions (Workflow file: `.github/workflows/ci.yaml`) for automated tasks and quality control.
+
+The CI pipeline performs:
+
+- module validation (`go mod tidy`)
+- static analysis (`go vet`)
+- tests execution (`go test`)
+
+
 
