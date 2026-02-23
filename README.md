@@ -92,10 +92,12 @@ git push -u origin main
 - update `go-tpl-repo` to `go-prjname`
 - review each sections and update/add content when needed
 
-**Step 8. test the changes**
+**Step 8. check the changes**
 
-```shell
-git push -u origin main
+```sh
+go vet ./...
+go test ./...
+go build ./...
 ```
 
 **Step 9. push the code**
@@ -114,7 +116,17 @@ git tag -a v0.1.0 -m "first tag to freeze the foundation"
 git push origin v0.1.0
 ```
 
+# Nest practice
+**managing errors**
+```go
+// generic
+fmt.Errorf("<operation> <resource>: %w", err)
 
+// example
+fmt.Errorf("read file %q: %w", path, err)
+fmt.Errorf("parse yaml %q: %w", path, err)
+fmt.Errorf("open database %q: %w", dsn, err)
+```
 
 see the `CI` in action on github .
 
