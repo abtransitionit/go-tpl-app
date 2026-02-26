@@ -1,3 +1,5 @@
+[Top]: #
+
 # go-tpl-app
 
 This repository serves as a standardized template for all future GitHub GO APP projects within the organization.  
