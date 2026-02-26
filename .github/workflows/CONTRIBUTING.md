@@ -1,5 +1,4 @@
 [Home]: ../README.md
-
 # [←][Home] Contributing to This Project
 
 Thank you for considering contributing! Here are a few guidelines to follow:
@@ -87,3 +86,12 @@ See how it should look:
 
 - Read our [Code of Conduct](CODE_OF_CONDUCT.md).
 - All contributions must follow the [license terms](../LICENSE).
+
+# Todo 
+## Testing the code
+| Your step                   | BDD-style mapping                                        | Example in your test                                |
+| --------------------------- | -------------------------------------------------------- | --------------------------------------------------- |
+| 1 - precondition            | **GIVEN** – setup the state / inputs                     | `GIVEN: a file path is empty, and data to write`    |
+| 2 - define desired / actual | **GIVEN** (continued) – define inputs / expected results | `data := []byte("hello world")` <br> `perm := 0600` |
+| 3 - call function           | **WHEN** – the action under test                         | `WHEN SaveWithPerm is called with the inputs`       |
+| 4 - assert                  | **THEN** – expected outcome                              | `THEN it should return ErrEmptyFilePath`            |

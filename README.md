@@ -22,6 +22,7 @@ This repository includes the following standard governance and documentation com
 | [CHANGELOG](./CHANGELOG.md) | Tracks project changes across versions. |
 | README | This document. Provides project overview, purpose, structure, and onboarding information for users and contributors. |
 
+----
 
 # Getting Started  
 
@@ -122,5 +123,12 @@ The CI pipeline performs:
 - static analysis (`go vet`)
 - tests execution (`go test`)
 
+
+
+# [↑][Top] Packages documentation
+
+|name|doc|test|description
+|-|-|-|-|
+|main|[Doc][Pkg Doc]|[Test][Pkg Test]|read/write `YAML` file
 
 
