@@ -1,4 +1,4 @@
-package main
+package lsd
 
 import (
 	"context"
@@ -9,7 +9,7 @@ import (
 	"github.com/abtransitionit/go-core/fs"
 )
 
-func run_load_v4() error {
+func run_load_v5() error {
 	// define context
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
@@ -20,18 +20,20 @@ func run_load_v4() error {
 	// bucketPrefix := "config.yaml"  // for bucket
 	// url := "https://example.com/config.yaml"
 
-	// get a resource operator
-	resOperator := fs.NewLoader(resLocation)
+	// get a resource loader
+	loader := fs.NewLoader(resLocation)
+
+	// resOperator := fs.NewSaver(resLocation, 0)
 	// loader = s3x.NewLoader(bucketName, bucketPrefix)
 	// loader = urlx.NewLoader("example.com", "config.yaml")
 
-	// operate on resource using the closure
-	data, err := resOperator(ctx)
+	// get content from resource
+	data, err := loader.Load(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// print file content
+	// print resources
 	fmt.Println(string(data))
 
 	// handle success

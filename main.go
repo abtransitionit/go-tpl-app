@@ -2,10 +2,13 @@ package main
 
 import (
 	"log"
+
+	// "github.com/abtransitionit/go-app-test/lsd"
+	"github.com/abtransitionit/go-app-test/logx"
 )
 
 func main() {
-	if err := run_save_yaml_v7(); err != nil {
-		log.Fatalf("loading yaml: %v", err)
+	if err := logx.Get(); err != nil {
+		log.Fatalf("runtime error: %v", err)
 	}
 }

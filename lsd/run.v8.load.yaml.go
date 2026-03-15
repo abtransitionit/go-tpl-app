@@ -1,12 +1,10 @@
-package main
+package lsd
 
 import (
 	"context"
 	"fmt"
-	"log"
 	"time"
 
-	"github.com/abtransitionit/go-core/resource"
 	"github.com/abtransitionit/go-yfm"
 )
 
@@ -14,8 +12,8 @@ import (
 //
 // Notes:
 //
-//   - use the function yfm.Load
-func run_load_yaml_v7() error {
+//   - use the function yfm.LoadFromUri
+func run_load_yaml_v8() error {
 	// define context
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
@@ -31,16 +29,13 @@ func run_load_yaml_v7() error {
 	// uri := "https://example.com/config.yaml"
 	// uri := "s3://my-bucket/config.yaml"
 
-	// get/define a loader for that yaml
-	yamlLoader, err := resource.NewLoader(resUri)
-	if err != nil {
-		panic(err)
-	}
+	// create the yaml file
+	// printf "name: my-app\nport: 8080" > /tmp/config.yaml
 
-	// load the yaml content into the instance [of a struct]
-	cfg, err := yfm.LoadFromLoader[Cfg](ctx, yamlLoader)
+	// load the data from the yaml into the instance
+	cfg, err := yfm.Load[Cfg](ctx, resUri)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
 	// print the var
