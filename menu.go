@@ -6,27 +6,26 @@ import (
 	"github.com/abtransitionit/go-res/exectx"
 )
 
-type MenuItem struct {
-	Name string
-	Fn   func(exectx.ExeCtx)
+// Menu returns the list of available commandsfunction
+func Menu() []MenuItem {
+	return []MenuItem{
+		Item("Start service", startService),
+		Item("Show status", stopService),
+		Item("Stop service", stopService),
+	}
 }
 
-// GetMenu defines all application commands
-func GetMenuItem() []MenuItem {
-	return []MenuItem{
-		{
-			Name: "Start service",
-			Fn: func(ec exectx.ExeCtx) {
-				ec.Logger.Info("Service started")
-				fmt.Println("Service started")
-			},
-		},
-		{
-			Name: "Show status",
-			Fn: func(ec exectx.ExeCtx) {
-				ec.Logger.Info("Checking status")
-				fmt.Println("Status: OK")
-			},
-		},
-	}
+func startService(ec exectx.ExeCtx) {
+	ec.Logger.Info("Service started")
+	fmt.Println("Service started")
+}
+
+func showStatus(ec exectx.ExeCtx) {
+	ec.Logger.Info("Service started")
+	fmt.Println("Service started")
+}
+
+func stopService(ec exectx.ExeCtx) {
+	ec.Logger.Info("Service stopped")
+	fmt.Println("Service stopped")
 }

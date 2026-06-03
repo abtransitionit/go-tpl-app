@@ -30,7 +30,7 @@ func main() {
 	}
 
 	// get the menu
-	menu := GetMenuItem()
+	menu := Menu()
 
 	// reader used for CLI input
 	reader := bufio.NewReader(os.Stdin)
