@@ -1,20 +1,12 @@
-module github.com/abtransitionit/go-tpl-app
+module github.com/abtransitionit/go-tpl-test
 
 // GO Toolchain
 go 1.26
 
-// dev mode
-// removes by CI at tag step
-// simplify development on active dev when working on several projects with inetr dependencies
-// replace github.com/abtransitionit/go-file => ../go-file
-
-// require github.com/abtransitionit/go-file v0.0.0
-
+// direct dependencies added by me
 require (
-	github.com/abtransitionit/go-core v0.0.0
 	github.com/abtransitionit/go-log v0.0.0
 	github.com/abtransitionit/go-res v0.0.0
-	github.com/kevinburke/ssh_config v1.6.0
 )
 
 require (
@@ -22,11 +14,10 @@ require (
 	go.uber.org/zap v1.27.1 // indirect
 )
 
+// dev mode dependencies added by me
+// removes by CI at tag step
+// simplify development on active dev when working on several projects with inetr dependencies
 replace (
-	github.com/abtransitionit/go-core => ../go-core
-	github.com/abtransitionit/go-file => ../go-file
-	github.com/abtransitionit/go-host => ../go-host
 	github.com/abtransitionit/go-log => ../go-log
 	github.com/abtransitionit/go-res => ../go-res
-	github.com/abtransitionit/go-task => ../go-task
 )
