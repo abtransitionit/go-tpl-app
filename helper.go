@@ -14,3 +14,8 @@ type MenuItem struct {
 	Name string
 	Fn   func(exectx.ExeCtx)
 }
+
+// Menu returns the list of available commandsfunction
+func Menu() []string {
+	return fnList.Keys()
+}

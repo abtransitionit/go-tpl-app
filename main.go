@@ -29,20 +29,20 @@ func main() {
 		Logger: logger,
 	}
 
-	// get the menu
-	menu := Menu()
+	// get the menu:Listkeys ([]string)
+	menuKeys := Menu()
 
 	// reader used for CLI input
 	reader := bufio.NewReader(os.Stdin)
 
 	// Menu loop
 	for {
-		// display menu with auto-generated numbers
+		// display menu:Listkeys with auto-generated numbers
 		fmt.Println("\nPlease choose an option:")
 		fmt.Println("0. Exit")
 
-		for i, item := range menu {
-			fmt.Printf("%d. %s\n", i+1, item.Name)
+		for i, keyName := range menuKeys {
+			fmt.Printf("%d. %s\n", i+1, keyName)
 		}
 
 		// prompt user
@@ -55,7 +55,7 @@ func main() {
 			continue
 		}
 
-		// convert user input string to integer choice
+		// convert user input choice (string) to an integer
 		input = strings.TrimSpace(input)
 		choice, err := strconv.Atoi(input)
 		if err != nil {
@@ -63,26 +63,38 @@ func main() {
 			continue
 		}
 
-		// exit handling
+		// handle exit
 		if choice == 0 {
 			fmt.Println("Bye")
 			logger.Info("Exiting application")
 			break
 		}
 
-		// validate user choice
-		if choice < 1 || choice > len(menu) {
+		// handle other user choice
+		if choice < 1 || choice > len(menuKeys) {
 			fmt.Println("Invalid input")
 			continue
 		}
 
 		// get menu item, based on user choice
-		selectedMenuItem := menu[choice-1]
+		selectedMenuItem := menuKeys[choice-1]
 
 		// log
-		fmt.Printf("you selected menu %d (%s)\n", choice, selectedMenuItem.Name)
+		ctx.Logger.Infof("valid user choice is : %d", choice)
+
+		// print
+		fmt.Printf("you selected choice %d (%s)\n", choice, selectedMenuItem)
+
+		// get fn from registry
+		fnToExecute, err := fnList.Fetch(selectedMenuItem)
+		if err != nil {
+			fmt.Println(err)
+			continue
+		}
 
 		// execute selected menu item function
-		selectedMenuItem.Fn(ctx)
+		fnToExecute(ctx)
+		// selectedMenuItem.Fn(ctx)
+		// selectedMenuItem.Fn(ctx)
 	}
 }

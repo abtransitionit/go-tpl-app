@@ -5,6 +5,7 @@ go 1.26
 
 // direct dependencies added by me
 require (
+	github.com/abtransitionit/go-core v0.0.0
 	github.com/abtransitionit/go-log v0.0.0
 	github.com/abtransitionit/go-res v0.0.0
 )
@@ -18,6 +19,7 @@ require (
 // removes by CI at tag step
 // simplify development on active dev when working on several projects with inetr dependencies
 replace (
+	github.com/abtransitionit/go-core => ../go-core
 	github.com/abtransitionit/go-log => ../go-log
 	github.com/abtransitionit/go-res => ../go-res
 )
