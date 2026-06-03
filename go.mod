@@ -1,4 +1,4 @@
-module github.com/abtransitionit/go-tpl-test
+module github.com/abtransitionit/go-app-test
 
 // GO Toolchain
 go 1.26
